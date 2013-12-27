@@ -19,8 +19,8 @@ set(LIBS)
 
 include(ConfigArchitecture)
 include(ConfigCompilerFlags)
-include(ConfigExternal)
-include(ConfigMath)
+#include(ConfigExternal)
+#include(ConfigMath)
 include(ConfigSafeGuards)
 include(GenericMacros)
 include(ConfigGitRevision)
@@ -37,7 +37,7 @@ include_directories(src/cxx_sources)
 
 # build executables
 add_executable(fortran_main.x ${PROJECT_SOURCE_DIR}/src/fortran_main.F90)
-target_link_libraries(fortran_main.x fortran ${LIBS})
+target_link_libraries(fortran_main.x cxx fortran ${LIBS})
 
 add_executable(cxx_main.x ${PROJECT_SOURCE_DIR}/src/cxx_main.cpp)
 target_link_libraries(cxx_main.x stdc++ cxx ${LIBS})
