@@ -31,5 +31,7 @@ b = 2.0
 
 call cxx_function(a, b)
 
+call call_fortran_function()
+
 END PROGRAM Area
 

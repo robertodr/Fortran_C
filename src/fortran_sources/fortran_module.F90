@@ -6,6 +6,7 @@ module fortran_module
     
     public a_module_subroutine
     public area_circle
+    public collect_integer
 
     private
 
@@ -33,5 +34,12 @@ module fortran_module
         area_circle = pi * r * r
 
         end function area_circle
+
+        subroutine collect_integer(an_int) bind(c, name='collect_integer')
+
+                integer(c_int) :: an_int
+                an_int = 4
+
+        end subroutine collect_integer
 
 end module fortran_module

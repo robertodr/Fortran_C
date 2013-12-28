@@ -24,6 +24,9 @@ include(ConfigCompilerFlags)
 include(ConfigSafeGuards)
 include(GenericMacros)
 include(ConfigGitRevision)
+include(FortranCInterface)
+FortranCInterface_VERIFY(CXX)
+FortranCInterface_HEADER(include/FCMangle.hpp)
 
 
 find_package(Eigen3 3.0.0)
@@ -40,4 +43,4 @@ add_executable(fortran_main.x ${PROJECT_SOURCE_DIR}/src/fortran_main.F90)
 target_link_libraries(fortran_main.x cxx fortran ${LIBS})
 
 add_executable(cxx_main.x ${PROJECT_SOURCE_DIR}/src/cxx_main.cpp)
-target_link_libraries(cxx_main.x stdc++ cxx ${LIBS})
+target_link_libraries(cxx_main.x cxx fortran ${LIBS})
