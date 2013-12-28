@@ -35,7 +35,7 @@ module fortran_module
 
         end function area_circle
 
-        subroutine collect_integer(an_int) bind(c, name='collect_integer')
+        subroutine collect_integer(an_int)
 
                 integer(c_int) :: an_int
                 an_int = 4

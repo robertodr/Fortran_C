@@ -3,7 +3,13 @@
 
 #include "FCMangle.hpp"
 
-extern "C" void cxx_function_(int * an_int, double * a_double);
+#define cxx_function \
+    FortranCInterface_GLOBAL_(cxx_function, CXX_FUNCTION)
+
+extern "C" void cxx_function(int * an_int, double * a_double);
+
+#define collect_integer \
+    FortranCInterface_MODULE_(fortran_module, collect_integer, FORTRAN_MODULE, COLLECT_INTEGER)
 
 extern "C" void collect_integer(int * an_int);
 
