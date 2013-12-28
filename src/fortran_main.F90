@@ -7,6 +7,7 @@ PROGRAM Area
 !
 !---------------------------------------------------------------------
 
+use, intrinsic :: iso_c_binding
 use fortran_module
 
 IMPLICIT NONE
@@ -16,6 +17,9 @@ IMPLICIT NONE
 REAL(8) :: radius
 integer :: a
 real(8) :: b
+real(c_double), allocatable :: a_matrix(:, :)
+integer :: i, j
+
 
 !  Prompt user for radius of circle
 write(*, '(A)', ADVANCE = "NO") "Enter the radius of the circle:  "
@@ -32,6 +36,17 @@ b = 2.0
 call cxx_function(a, b)
 
 call call_fortran_function()
+
+allocate(a_matrix(4, 4))
+a_matrix = 0.0d0
+
+call get_C_matrix(a_matrix)
+
+do i = 1, 4
+  do j = 1, 4
+     print *,  "a_matrix(", i, ",", j,") = ", a_matrix(i, j)
+  end do
+end do
 
 END PROGRAM Area
 

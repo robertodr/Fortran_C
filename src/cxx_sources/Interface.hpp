@@ -18,4 +18,9 @@ extern "C" void collect_integer(int * an_int);
 
 extern "C" void call_fortran_function();
 
+#define get_C_matrix \
+    FortranCInterface_GLOBAL_(get_c_matrix, GET_C_MATRIX)
+
+extern "C" void get_C_matrix(double * a_matrix);
+
 #endif // INTERFACE_HPP
