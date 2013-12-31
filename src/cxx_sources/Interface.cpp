@@ -100,3 +100,22 @@ extern "C" void print_output()
     size_t string_length = strlen(c_string) + 1; // Account for NULL termination of C-style strings
     print_from_fortran(c_string, &string_length);
 }
+
+extern "C" void compute_dot_product(double * dot_product, ...)
+{
+    va_list args;
+    va_start(args, NULL);
+    char * label1 = va_arg(args, char *);
+    std::cout << "label1 " << label1 << std::endl;
+
+    if (!label1)
+    {
+        std::cout << "No labels!" << std::endl;
+    }
+    else
+    {
+        char * label2 = va_arg(args, char *);
+    std::cout << "label2 " << label2 << std::endl;
+    }
+    va_end(args);
+}

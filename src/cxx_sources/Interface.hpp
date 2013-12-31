@@ -62,4 +62,8 @@ extern "C" void set_buffer_transaction(void * whatever, int * id);
 
 extern "C" void * get_buffer_transaction(int id);
 
+#define compute_dot_product \
+    FortranCInterface_GLOBAL_(compute_dot_product, COMPUTE_DOT_PRODUCT)
+extern "C" void compute_dot_product(double * dot_product, ...);
+
 #endif // INTERFACE_HPP

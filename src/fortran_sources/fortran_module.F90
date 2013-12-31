@@ -41,7 +41,14 @@ module fortran_module
         subroutine collect_integer(an_int)
 
                 integer(c_int) :: an_int
+                real(c_double) :: dot
+                character(7) :: label1 = 'TotMEP'//char(0)
+                character(7) :: label2 = 'TotASC'//char(0)
+                character(7) :: label3 = 'TotASC'//char(0)
                 an_int = 4
+                print *, "calling compute_dot_product"
+!                call compute_dot_product(dot)
+                call compute_dot_product(dot, label1, label2)
 
         end subroutine collect_integer
 
