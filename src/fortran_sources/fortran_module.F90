@@ -7,6 +7,7 @@ module fortran_module
     public a_module_subroutine
     public area_circle
     public collect_integer
+    public get_array_buffer_transaction
 
     private
 
@@ -41,5 +42,18 @@ module fortran_module
                 an_int = 4
 
         end subroutine collect_integer
+
+        subroutine get_array_buffer_transaction()
+                
+                real(c_double), allocatable :: b_array(:)
+                integer(c_int) :: id
+                
+                allocate(b_array(10))
+                b_array = 1.0d0
+                id = 1
+
+                call set_buffer_transaction(b_array(id), id)
+
+        end subroutine get_array_buffer_transaction
 
 end module fortran_module

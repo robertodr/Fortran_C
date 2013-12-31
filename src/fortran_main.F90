@@ -18,8 +18,9 @@ REAL(8) :: radius
 integer :: a
 real(8) :: b
 real(c_double), allocatable :: a_matrix(:, :)
-integer :: i, j
 
+real(c_double), allocatable :: b_matrix(:, :)
+integer :: i, j
 
 !  Prompt user for radius of circle
 write(*, '(A)', ADVANCE = "NO") "Enter the radius of the circle:  "
@@ -47,6 +48,11 @@ do i = 1, 4
      print *,  "a_matrix(", i, ",", j,") = ", a_matrix(i, j)
   end do
 end do
+
+allocate(b_matrix(4, 4))
+b_matrix = 0.0d0
+
+call get_fortran_array()
 
 END PROGRAM Area
 

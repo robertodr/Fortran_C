@@ -23,4 +23,24 @@ extern "C" void call_fortran_function();
 
 extern "C" void get_C_matrix(double * a_matrix);
 
+#define get_fortran_array \
+    FortranCInterface_GLOBAL_(get_fortran_array, GET_FORTRAN_ARRAY)
+
+extern "C" void get_fortran_array();
+
+#define get_array_buffer_transaction \
+    FortranCInterface_MODULE_(fortran_module, get_array_buffer_transaction, FORTRAN_MODULE, GET_ARRAY_BUFFER_TRANSACTION)
+
+extern "C" void get_array_buffer_transaction();
+
+#define set_buffer_transaction \
+    FortranCInterface_GLOBAL_(set_buffer_transaction, SET_BUFFER_TRANSACTION)
+
+extern "C" void set_buffer_transaction(void * whatever, int * id);
+
+#define get_buffer_transaction \
+    FortranCInterface_GLOBAL_(get_buffer_transaction, GET_BUFFER_TRANSACTION)
+
+extern "C" void * get_buffer_transaction(int id);
+
 #endif // INTERFACE_HPP
