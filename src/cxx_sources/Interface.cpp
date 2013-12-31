@@ -55,6 +55,13 @@ extern "C" void get_fortran_array()
     }
 }
 
+extern "C" void get_fortran_string()
+{
+    get_string_buffer_transaction();
+    char * string = (char *)get_buffer_transaction(2);
+    std::cout << "string is " << string << std::endl;
+}
+
 static void * buffer_ptr;
 static int seqid = 0;
 

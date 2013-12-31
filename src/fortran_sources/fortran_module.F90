@@ -52,8 +52,20 @@ module fortran_module
                 b_array = 1.0d0
                 id = 1
 
-                call set_buffer_transaction(b_array(id), id)
+                call set_buffer_transaction(b_array(1), id)
 
         end subroutine get_array_buffer_transaction
+        
+        subroutine get_string_buffer_transaction()
+               
+                character(255) :: string
+                integer(c_int) :: id
+               
+                string = "BlaBla"//char(0)
+                id = 2
+
+                call set_buffer_transaction(string, id)
+
+        end subroutine get_string_buffer_transaction
 
 end module fortran_module

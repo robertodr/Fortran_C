@@ -54,5 +54,7 @@ b_matrix = 0.0d0
 
 call get_fortran_array()
 
+call get_fortran_string()
+
 END PROGRAM Area
 

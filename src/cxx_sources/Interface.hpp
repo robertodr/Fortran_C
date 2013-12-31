@@ -28,10 +28,20 @@ extern "C" void get_C_matrix(double * a_matrix);
 
 extern "C" void get_fortran_array();
 
+#define get_fortran_string \
+    FortranCInterface_GLOBAL_(get_fortran_string, GET_FORTRAN_STRING)
+
+extern "C" void get_fortran_string();
+
 #define get_array_buffer_transaction \
     FortranCInterface_MODULE_(fortran_module, get_array_buffer_transaction, FORTRAN_MODULE, GET_ARRAY_BUFFER_TRANSACTION)
 
 extern "C" void get_array_buffer_transaction();
+
+#define get_string_buffer_transaction \
+    FortranCInterface_MODULE_(fortran_module, get_string_buffer_transaction, FORTRAN_MODULE, GET_STRING_BUFFER_TRANSACTION)
+
+extern "C" void get_string_buffer_transaction();
 
 #define set_buffer_transaction \
     FortranCInterface_GLOBAL_(set_buffer_transaction, SET_BUFFER_TRANSACTION)
