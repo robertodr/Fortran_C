@@ -33,10 +33,14 @@ extern "C" void get_fortran_array();
 
 extern "C" void get_fortran_string();
 
+#define print_output \
+    FortranCInterface_GLOBAL_(print_output, PRINT_OUTPUT)
+extern "C" void print_output();
+
 #define print_from_fortran \
     FortranCInterface_MODULE_(fortran_module, print_from_fortran, FORTRAN_MODULE, PRINT_FROM_FORTRAN)
 
-extern "C" void print_from_fortran(char * string, int * length);
+extern "C" void print_from_fortran(const char * string, size_t * length);
 
 #define get_array_buffer_transaction \
     FortranCInterface_MODULE_(fortran_module, get_array_buffer_transaction, FORTRAN_MODULE, GET_ARRAY_BUFFER_TRANSACTION)

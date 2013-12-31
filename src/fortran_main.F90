@@ -56,5 +56,7 @@ call get_fortran_array()
 
 call get_fortran_string()
 
+call print_output()
+
 END PROGRAM Area
 

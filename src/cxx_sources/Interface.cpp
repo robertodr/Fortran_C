@@ -66,8 +66,8 @@ extern "C" void get_fortran_string()
     std::cout << "cxx_string is " << cxx_string << std::endl;
     std::cout << "string is " << cxx_string.c_str() << std::endl;
     const char * foo = cxx_string.c_str();
-    int foo_length = (int)strlen(foo) + 1; // Account for NULL termination of C-style strings
-    print_from_fortran(const_cast<char *>(foo), &foo_length);
+    size_t foo_length = strlen(foo) + 1; // Account for NULL termination of C-style strings
+    print_from_fortran(foo, &foo_length);
 }
 
 static void * buffer_ptr;
@@ -87,4 +87,16 @@ extern "C" void * get_buffer_transaction(int id)
         throw std::runtime_error("Invalid transaction id!");
     }
     return buffer_ptr;
+}
+
+extern "C" void print_output()
+{
+    // Declare C++ string
+    std::string cxx_string("Hello, world!!!");
+    // Convert it to a C-style string
+    const char * c_string = cxx_string.c_str();
+    // Send it to Fortran to be printed out
+    // first calculate length
+    size_t string_length = strlen(c_string) + 1; // Account for NULL termination of C-style strings
+    print_from_fortran(c_string, &string_length);
 }

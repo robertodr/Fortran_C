@@ -73,7 +73,7 @@ module fortran_module
 
         subroutine print_from_fortran(string, length)
                
-                integer :: length
+                integer(c_size_t) :: length
                 character(length) :: string
 
                 print *, "length = ", length
