@@ -59,7 +59,15 @@ extern "C" void get_fortran_string()
 {
     get_string_buffer_transaction();
     char * string = (char *)get_buffer_transaction(2);
+    std::string cxx_string(string);
     std::cout << "string is " << string << std::endl;
+    std::cout << "cxx_string is " << cxx_string << std::endl;
+    cxx_string += "Bla";
+    std::cout << "cxx_string is " << cxx_string << std::endl;
+    std::cout << "string is " << cxx_string.c_str() << std::endl;
+    const char * foo = cxx_string.c_str();
+    int foo_length = (int)strlen(foo) + 1; // Account for NULL termination of C-style strings
+    print_from_fortran(const_cast<char *>(foo), &foo_length);
 }
 
 static void * buffer_ptr;

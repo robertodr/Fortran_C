@@ -8,6 +8,8 @@ module fortran_module
     public area_circle
     public collect_integer
     public get_array_buffer_transaction
+    public get_string_buffer_transaction
+    public print_from_fortran 
 
     private
 
@@ -65,7 +67,19 @@ module fortran_module
                 id = 2
 
                 call set_buffer_transaction(string, id)
+                print *, string
 
         end subroutine get_string_buffer_transaction
+
+        subroutine print_from_fortran(string, length)
+               
+                integer :: length
+                character(length) :: string
+
+                print *, "length = ", length
+
+                print *, "From fortran ", string !trim(string)
+
+        end subroutine print_from_fortran
 
 end module fortran_module
