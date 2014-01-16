@@ -21,6 +21,9 @@ real(c_double), allocatable :: a_matrix(:, :)
 
 real(c_double), allocatable :: b_matrix(:, :)
 integer :: i, j
+type(a_struct) :: send_data
+
+send_data = a_struct(1, 2.0)
 
 !  Prompt user for radius of circle
 write(*, '(A)', ADVANCE = "NO") "Enter the radius of the circle:  "
@@ -57,6 +60,8 @@ call get_fortran_array()
 call get_fortran_string()
 
 call print_output()
+
+call set_data_struct(send_data)
 
 END PROGRAM Area
 

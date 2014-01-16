@@ -37,6 +37,7 @@ include_directories(${PROJECT_BINARY_DIR}/include)
 
 add_subdirectory(src)
 include_directories(src/cxx_sources)
+include_directories(src/fortran_sources)
 
 # build executables
 add_executable(fortran_main.x ${PROJECT_SOURCE_DIR}/src/fortran_main.F90)

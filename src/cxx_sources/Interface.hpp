@@ -3,6 +3,12 @@
 
 #include "FCMangle.hpp"
 
+struct a_struct
+{
+	int i1;
+	double d1;
+};
+
 #define cxx_function \
     FortranCInterface_GLOBAL_(cxx_function, CXX_FUNCTION)
 
@@ -61,5 +67,10 @@ extern "C" void set_buffer_transaction(void * whatever, int * id);
     FortranCInterface_GLOBAL_(get_buffer_transaction, GET_BUFFER_TRANSACTION)
 
 extern "C" void * get_buffer_transaction(int id);
+
+#define set_data_struct \
+    FortranCInterface_GLOBAL_(set_data_struct, SET_DATA_STRUCT)
+
+extern "C" void set_data_struct(a_struct * data);
 
 #endif // INTERFACE_HPP

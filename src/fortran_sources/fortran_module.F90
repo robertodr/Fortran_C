@@ -9,7 +9,12 @@ module fortran_module
     public collect_integer
     public get_array_buffer_transaction
     public get_string_buffer_transaction
-    public print_from_fortran 
+    public print_from_fortran
+
+    type, public, bind(c) :: a_struct
+            integer(c_int) :: i1
+            real(c_double) :: d1
+    end type
 
     private
 

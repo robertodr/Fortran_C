@@ -100,3 +100,9 @@ extern "C" void print_output()
     size_t string_length = strlen(c_string) + 1; // Account for NULL termination of C-style strings
     print_from_fortran(c_string, &string_length);
 }
+
+extern "C" void set_data_struct(a_struct * data)
+{
+	std::cout << "data->i1 = " << data->i1 << std::endl;
+	std::cout << "data->d1 = " << data->d1 << std::endl;
+}
